@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Features\Clientes\**" />
+    <Compile Remove="Features\Cuentas - Copia\**" />
+    <EmbeddedResource Remove="Features\Clientes\**" />
+    <EmbeddedResource Remove="Features\Cuentas - Copia\**" />
+    <None Remove="Features\Clientes\**" />
+    <None Remove="Features\Cuentas - Copia\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommand.cs" />
+    <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommandHandler.cs" />
+    <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommandValidator.cs" />
+    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteStreamerCommand.cs" />
+    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteStreamerCommandHandler.cs" />
+    <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommand.cs" />
+    <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommandHandler.cs" />
+    <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommandValidator.cs" />
+    <Compile Include="Features\Clientes\Queries\ClienteVM.cs" />
+    <Compile Include="Features\Clientes\Queries\GetClienteAllQuery.cs" />
+    <Compile Include="Features\Clientes\Queries\GetClienteByIdentQuery.cs" />
+    <Compile Include="Features\Clientes\Queries\GetClienteAllQueryHandler.cs" />
+    <Compile Include="Features\Clientes\Queries\GetClienteByIdentQueryHandler.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CleanArchitecture.Domain\CleanArchitecture.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="FluentValidation" Version="10.3.6" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="10.3.6" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
