@@ -21,7 +21,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"contrasenia\": \"12456\",\r\n  \"nombre\": \"Jose Lema \",\r\n  \"genero\": \"F\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"01234567892\",\r\n  \"direccion\": \"Otavalo sn y principal  \",\r\n  \"telefono\": \"098254785 \",\r\n  \"estado\": 1\r\n}",
+							"raw": "{\r\n  \"contrasenia\": \"12456\",\r\n  \"nombre\": \"Jose Perez \",\r\n  \"genero\": \"F\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"01234567892\",\r\n  \"direccion\": \"Otavalo sn y principal  \",\r\n  \"telefono\": \"098254785 \",\r\n  \"estado\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -29,12 +29,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cliente",
+							"raw": "http://localhost:5265/api/v1/Cliente",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -46,20 +46,28 @@
 				},
 				{
 					"name": "Get Cliente",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cliente",
+							"raw": "http://localhost:5265/api/v1/Cliente/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
-								"Cliente"
+								"Cliente",
+								""
 							]
 						}
 					},
@@ -71,12 +79,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cliente/3",
+							"raw": "http://localhost:5265/api/v1/Cliente/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -94,7 +102,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"cuentaId\": 0,\r\n  \"estado\": 0\r\n}",
+							"raw": "{\r\n  \"clienteId\": 31,\r\n  \"contrasenia\": \"12456\",\r\n  \"nombre\": \"Jose Perez \",\r\n  \"genero\": \"F\",\r\n  \"edad\": 31,\r\n  \"identificacion\": \"01234567892\",\r\n  \"direccion\": \"Otavalo sn y principal  \",\r\n  \"telefono\": \"098254785 \",\r\n  \"estado\": 1\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -102,12 +110,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cliente",
+							"raw": "http://localhost:5265/api/v1/Cliente",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -137,12 +145,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cuenta",
+							"raw": "http://localhost:5265/api/v1/Cuenta",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -158,12 +166,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cuenta/2",
+							"raw": "http://localhost:5265/api/v1/Cuenta/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -180,12 +188,12 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cuenta/2",
+							"raw": "http://localhost:5265/api/v1/Cuenta/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -211,12 +219,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Cuenta",
+							"raw": "http://localhost:5265/api/v1/Cuenta",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -246,12 +254,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:57684/api/v1/Movimiento",
+							"raw": "http://localhost:5265/api/v1/Movimiento",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "57684",
+							"port": "5265",
 							"path": [
 								"api",
 								"v1",
@@ -278,6 +286,33 @@
 								"v1",
 								"Movimiento",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporte",
+			"item": [
+				{
+					"name": "Get Movimiento por Fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5265/api/v1/Reporte/2022-07-10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5265",
+							"path": [
+								"api",
+								"v1",
+								"Reporte",
+								"2022-07-10"
 							]
 						}
 					},
