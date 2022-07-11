@@ -28,8 +28,8 @@ namespace CleanArchitecture.API.Controllers
         public async Task<ActionResult<IEnumerable<ClienteVM>>> GetClienteList()
         {
             var query = new GetClienteAllQuery();
-            var videos = await _mediator.Send(query);
-            return Ok(videos);
+            var result = await _mediator.Send(query);
+            return Ok(result);
 
 
         }
@@ -39,8 +39,8 @@ namespace CleanArchitecture.API.Controllers
         public async Task<ActionResult<IEnumerable<ClienteVM>>> GetCliente(string identificacion)
         {
             var query = new GetClienteByIdentQuery(identificacion);
-            var videos = await _mediator.Send(query);
-            return Ok(videos);
+            var result = await _mediator.Send(query);
+            return Ok(result);
 
 
         }

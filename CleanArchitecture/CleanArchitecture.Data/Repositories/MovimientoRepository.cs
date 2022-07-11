@@ -4,6 +4,7 @@ using CleanArchitecture.Domain.Result;
 using CleanArchitecture.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace CleanArchitecture.Infrastructure.Repositories
 {
     public class MovimientoRepository : RepositoryBase<Movimiento>, IMovimientoRepository
@@ -34,10 +35,43 @@ namespace CleanArchitecture.Infrastructure.Repositories
                                SaldoInicial = p.SaldoInicial,
                                SaldoDisponible = p.Saldo,
                                Valor = p.Valor,
-                               Fecha = p.CreatedDate.ToString(),
+                               Fecha = p.CreatedDate.Value.Date.ToShortDateString(),
                                TipoMovimiento = x.Nombre
 
                            }).ToListAsync();
+
+
+            return await Movimientos;
+        }
+
+        public async Task<List<MovimientoResult>> GetMovimientoByFecha(DateTime fecha)
+        {
+            var Movimientos = (from p in _context.Movimiento
+                               join x in _context!.TipoMovimiento! on p.TipoMovimientoId equals x.TipoMovimientoId
+                               join d in _context!.Cuenta!
+                               on p.CuentaId equals d.CuentaId
+                               join t in _context!.TipoCuenta!
+                               on d.TipoCuentaId equals t.TipoCuentaId
+                               join c in _context!.Cliente!
+                              on d.ClienteId equals c.ClienteId
+                               where  p.CreatedDate.Value.Year == fecha.Year
+                                        && p.CreatedDate.Value.Month == fecha.Month
+                                        && p.CreatedDate.Value.Day == fecha.Day
+                               select new MovimientoResult()
+                               {
+                                   ClienteId = p.CuentaId,
+                                   NumeroCuenta = d.NumeroCuenta,
+                                   CuentaId = p.CuentaId,
+                                   Cliente = c.Nombre,
+                                   TipoCuenta = t.Nombre,
+                                   TipoCuentaId = t.TipoCuentaId,
+                                   SaldoInicial = p.SaldoInicial,
+                                   SaldoDisponible = p.Saldo,
+                                   Valor = p.Valor,
+                                   Fecha = p.CreatedDate.Value.Date.ToShortDateString(),
+                                   TipoMovimiento = x.Nombre
+
+                               }).ToListAsync();
 
 
             return await Movimientos;

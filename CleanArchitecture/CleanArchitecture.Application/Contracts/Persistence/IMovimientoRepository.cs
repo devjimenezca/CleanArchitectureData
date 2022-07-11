@@ -6,5 +6,6 @@ namespace CleanArchitecture.Application.Contracts.Persistence
     public interface IMovimientoRepository : IAsyncRepository<Movimiento>
     {
         Task<List<MovimientoResult>> GetMovimientoById(int ClienteId);
+        Task<List<MovimientoResult>> GetMovimientoByFecha(DateTime fecha);
     }
 }

@@ -26,8 +26,8 @@ namespace CleanArchitecture.API.Controllers
         public async Task<ActionResult<IEnumerable<MovimientoVM>>> GetMovimiento(int ClienteId)
         {
             var query = new GetMovimientosByClienteQuery(ClienteId);
-            var videos = await _mediator.Send(query);
-            return Ok(videos);
+            var result = await _mediator.Send(query);
+            return Ok(result);
 
 
         }
