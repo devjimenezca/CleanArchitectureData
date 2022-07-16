@@ -7,6 +7,7 @@ namespace CleanArchitecture.Application.Features.Movimientos
         public string NumeroCuenta { get; set; } = String.Empty;
         public decimal SaldoInicial { get; set; }
         public decimal SaldoDisponible { get; set; }
+        public decimal Valor { get; set; }
 
         public int ClienteId { get; set; }
         public int TipoCuentaId { get; set; }

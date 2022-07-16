@@ -35,6 +35,7 @@ namespace CleanArchitecture.Infrastructure.Repositories
                                SaldoInicial = p.SaldoInicial,
                                SaldoDisponible = p.Saldo,
                                Valor = p.Valor,
+                               TipoMovimientoId = x.TipoMovimientoId,
                                Fecha = p.CreatedDate.Value.Date.ToShortDateString(),
                                TipoMovimiento = x.Nombre
 
@@ -68,6 +69,7 @@ namespace CleanArchitecture.Infrastructure.Repositories
                                    SaldoInicial = p.SaldoInicial,
                                    SaldoDisponible = p.Saldo,
                                    Valor = p.Valor,
+                                   TipoMovimientoId = x.TipoMovimientoId,
                                    Fecha = p.CreatedDate.Value.Date.ToShortDateString(),
                                    TipoMovimiento = x.Nombre
 

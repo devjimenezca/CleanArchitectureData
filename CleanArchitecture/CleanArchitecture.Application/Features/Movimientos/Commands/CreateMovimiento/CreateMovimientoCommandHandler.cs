@@ -38,7 +38,7 @@ namespace CleanArchitecture.Application.Features.Movimientos.Commands
 
             if (total < 0)
             {
-                throw new Exception("No se puede registrar valores menos a cero");
+                throw new Exception("No se puede registrar el movimiento fondo insuficiente");
             }
             else
             {
@@ -50,13 +50,13 @@ namespace CleanArchitecture.Application.Features.Movimientos.Commands
             if(resultCuenta !=null)
                resultMovimiento = await _unitOfWork.Repository<Movimiento>().AddAsync(MovimientoEntity);
 
-            if (resultCuenta == null) {
+            if (resultMovimiento == null) {
                 _logger.LogError("No se insert");
                 throw new Exception("No se puede insertar el record de la Movimiento");
             }
             _logger.LogInformation($"Movimiento {MovimientoEntity.MovimientoId} fue creado existosamente");
 
-            return resultCuenta.CuentaId;
+            return resultMovimiento.MovimientoId;
         }
 
 
