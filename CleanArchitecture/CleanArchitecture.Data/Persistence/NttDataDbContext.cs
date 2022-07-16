@@ -11,12 +11,12 @@ namespace CleanArchitecture.Infrastructure.Persistence
         }
 
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=(local); Initial Catalog=NTTDATA; user Id=sa; Password=Manager123")
-               .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
-               .EnableSensitiveDataLogging();
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Data Source=(local); Initial Catalog=NTTDATA; user Id=sa; Password=Manager123")
+        //       .LogTo(Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name }, Microsoft.Extensions.Logging.LogLevel.Information)
+        //       .EnableSensitiveDataLogging();
+        //}
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

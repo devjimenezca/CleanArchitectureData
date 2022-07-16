@@ -33,8 +33,8 @@ namespace CleanArchitecture.Application.Features.Cuentas.Commands.DeleteCuenta
 
             //  await _cuentaRepository.DeleteAsync(CuentaToDelete);
             CuentaToDelete.Estado = 0;
-            _unitOfWork.Repository<Cuenta>().UpdateEntity(CuentaToDelete);
-            await _unitOfWork.Complete();
+            var result = await _unitOfWork.Repository<Cuenta>().UpdateAsync(CuentaToDelete);
+            
 
             _logger.LogInformation($"El {request.CuentaId} Cuenta fue eliminado con exito");
 

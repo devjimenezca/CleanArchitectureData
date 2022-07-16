@@ -45,19 +45,18 @@ namespace CleanArchitecture.Application.Features.Movimientos.Commands
                 Cuenta.SaldoInicial = total;
                 MovimientoEntity.Saldo = total;
             }
-            _unitOfWork.Repository<Cuenta>().UpdateEntity(Cuenta);
-            _unitOfWork.Repository<Movimiento>().AddEntity(MovimientoEntity);
-            var result = await _unitOfWork.Complete();
+            var resultCuenta = await _unitOfWork.Repository<Cuenta>().UpdateAsync(Cuenta);
+            var resultMovimiento = new Movimiento();
+            if(resultCuenta !=null)
+               resultMovimiento = await _unitOfWork.Repository<Movimiento>().AddAsync(MovimientoEntity);
 
-            
-
-            if (result <= 0) {
+            if (resultCuenta == null) {
                 _logger.LogError("No se insert");
                 throw new Exception("No se puede insertar el record de la Movimiento");
             }
             _logger.LogInformation($"Movimiento {MovimientoEntity.MovimientoId} fue creado existosamente");
 
-            return result;
+            return resultCuenta.CuentaId;
         }
 
 

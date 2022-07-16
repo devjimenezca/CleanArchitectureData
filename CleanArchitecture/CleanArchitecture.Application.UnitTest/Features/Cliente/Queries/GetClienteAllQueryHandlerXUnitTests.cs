@@ -40,7 +40,7 @@ namespace CleanArchitecture.Application.UnitTest.Features.Cliente.Queries
 
             result.ShouldBeOfType<List<ClienteVM>>();
 
-            result!.Count.ShouldBe(0);
+            result!.Count.ShouldBe(4);
         }
     }
 }

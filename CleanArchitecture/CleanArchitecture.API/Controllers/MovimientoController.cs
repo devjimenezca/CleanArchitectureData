@@ -1,8 +1,7 @@
 ﻿using CleanArchitecture.Application.Features.Movimientos;
 using CleanArchitecture.Application.Features.Movimientos.Commands;
 using CleanArchitecture.Application.Features.Movimeintos.Queries;
-using CleanArchitecture.Application.Features.Movimientos.Commands.DeleteMovimiento;
-using CleanArchitecture.Application.Features.Movimientos.Commands.UpdateMovimiento;
+
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -40,33 +39,7 @@ namespace CleanArchitecture.API.Controllers
             return await _mediator.Send(command);
         }
 
-        //[HttpPut(Name = "UpdateMovimiento")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesDefaultResponseType]
-        //public async Task<ActionResult> UpdateMovimiento([FromBody] UpdateMovimientoCommand command)
-        //{
-        //    await _mediator.Send(command);
-
-        //    return NoContent();
-        //}
-
-
-        //[HttpDelete("{id}", Name = "DeleteMovimiento")]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //[ProducesResponseType(StatusCodes.Status404NotFound)]
-        //[ProducesDefaultResponseType]
-        //public async Task<ActionResult> DeleteMovimiento(int id)
-        //{
-        //    var command = new DeleteMovimientoCommand
-        //    {
-        //        MovimientoId = id
-        //    };
-
-        //    await _mediator.Send(command);
-
-        //    return NoContent();
-        //}
+     
     }
 
 }

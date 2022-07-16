@@ -2,7 +2,16 @@ version: '3.4'
 
 services:
   cleanarchitecture.api:
-    image: ${DOCKER_REGISTRY-}cleanarchitectureapi
     build:
       context: .
-      dockerfile: CleanArchitecture.API\Dockerfile
+      dockerfile: CleanArchitecture.API/Dockerfile
+    ports:
+      - "60700:5265"
+    environment:
+      - ASPNETCORE_URLS=http://*:5265
+  #sqlserverdata:
+  #  environment:
+  #      SA_PASSWORD: "Manager123"
+  #      ACCEPT_EULA: "Y"
+  #  ports:
+  #    - "1455:1433"

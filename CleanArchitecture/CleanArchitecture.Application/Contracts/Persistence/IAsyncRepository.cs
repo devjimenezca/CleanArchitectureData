@@ -29,10 +29,5 @@ namespace CleanArchitecture.Application.Contracts.Persistence
         Task DeleteAsync(T entity);
 
 
-        //Unity Work
-
-        void AddEntity(T entity);
-        void UpdateEntity(T entity);
-        void DeleteEntity(T entity);
     }
 }

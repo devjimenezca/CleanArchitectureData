@@ -23,20 +23,18 @@ namespace CleanArchitecture.Application.Features.Cuentas.Commands
         public async Task<int> Handle(CreateCuentaCommand request, CancellationToken cancellationToken)
         {
             var cuentaEntity = _mapper.Map<Cuenta>(request);
+
+            var result =_unitOfWork.CuentaRepository.AddAsync(cuentaEntity).Result;
            
-            _unitOfWork.Repository<Cuenta>().AddAsync(cuentaEntity);
-            var result = await _unitOfWork.Complete();
 
-
-
-            if (result <= 0)
+            if (result == null)
             {
                 _logger.LogError("No se insert");
                 throw new Exception("No se puede insertar el record de la cuenta");
             }
             _logger.LogInformation($"Cuenta {request.NumeroCuenta} fue creado existosamente");
 
-            return result;
+            return result.CuentaId;
         }
 
 

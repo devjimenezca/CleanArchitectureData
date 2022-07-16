@@ -33,8 +33,8 @@ namespace CleanArchitecture.Application.Features.Clientes.Commands.UpdateCliente
             _mapper.Map(request, ClienteToUpdate, typeof(UpdateClienteCommand), typeof(Cliente));
 
             //  await _CuentaRepository.UpdateAsync(CuentaToUpdate);
-            _unitOfWork.Repository<Cliente>().UpdateEntity(ClienteToUpdate);
-            await _unitOfWork.Complete();
+            var result = await _unitOfWork.Repository<Cliente>().UpdateAsync(ClienteToUpdate);
+            
             _logger.LogInformation($"La operacion fue exitosa actualizando el Cliente {request.ClienteId}");
 
             return Unit.Value;

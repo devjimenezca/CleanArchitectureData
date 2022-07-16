@@ -7,7 +7,6 @@ using CleanArchitecture.Application.Features.Cuentas.Commands;
 using CleanArchitecture.Application.Features.Cuentas.Commands.UpdateCuenta;
 using CleanArchitecture.Application.Features.Movimientos;
 using CleanArchitecture.Application.Features.Movimientos.Commands;
-using CleanArchitecture.Application.Features.Movimientos.Commands.UpdateMovimiento;
 using CleanArchitecture.Domain;
 using CleanArchitecture.Domain.Result;
 
@@ -25,7 +24,6 @@ namespace CleanArchitecture.Application.Mappings
             CreateMap<CreateCuentaCommand, Cuenta>();
             CreateMap<UpdateCuentaCommand, Cuenta>();
             CreateMap<CreateMovimientoCommand, Movimiento>();
-            CreateMap<UpdateMovimientoCommand, Movimiento>();
         }
     }
 }

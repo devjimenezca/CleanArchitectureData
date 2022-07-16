@@ -19,8 +19,8 @@
     <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommand.cs" />
     <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommandHandler.cs" />
     <Compile Include="Features\Clientes\Commands\CreateCliente\CreateClienteCommandValidator.cs" />
-    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteStreamerCommand.cs" />
-    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteStreamerCommandHandler.cs" />
+    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteClienteCommand.cs" />
+    <Compile Include="Features\Clientes\Commands\DeleteCliente\DeleteClienteCommandHandler.cs" />
     <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommand.cs" />
     <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommandHandler.cs" />
     <Compile Include="Features\Clientes\Commands\UpdateCliente\UpdateClienteCommandValidator.cs" />

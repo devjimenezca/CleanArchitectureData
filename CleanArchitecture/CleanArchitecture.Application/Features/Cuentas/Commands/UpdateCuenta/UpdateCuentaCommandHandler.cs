@@ -36,8 +36,8 @@ namespace CleanArchitecture.Application.Features.Cuentas.Commands.UpdateCuenta
 
             //  await _CuentaRepository.UpdateAsync(CuentaToUpdate);
             CuentaToUpdate.Estado = request.Estado;
-            _unitOfWork.Repository<Cuenta>().UpdateEntity(CuentaToUpdate);
-            await _unitOfWork.Complete();
+            var result = await _unitOfWork.Repository<Cuenta>().UpdateAsync(CuentaToUpdate);
+            
 
             _logger.LogInformation($"La operacion fue exitosa actualizando el Cuenta {request.CuentaId}");
 
